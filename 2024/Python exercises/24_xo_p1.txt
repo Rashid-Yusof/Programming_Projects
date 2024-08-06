@@ -1,0 +1,11 @@
+def board():
+    width = int(input("Select the width: "))
+    height = int(input("Select the height: "))
+    
+    for i in range(height):
+        print(" ---" * width )
+        print("|   " * (width+1))
+    print(" ---" * width)
+
+if __name__ == "__main__":
+    board()

@@ -1,0 +1,37 @@
+#2libraries
+#requests and beautiful soup
+#use requests to get html. use soup to parse it
+#fetch <title>
+#an api allows a program to interface with something else (?)
+# originally http://www.nytimes.com/. Decided to use scoop cos NYT is paid site
+
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://thescoop.co/"
+r = requests.get(url)
+r_html = r.text
+
+soup = BeautifulSoup(r_html, 'html.parser')
+a_all = soup.find_all('h2')
+
+#print(a_all)
+#lines = []
+with open('Scoop.txt' , 'w') as open_file:
+    for h2 in a_all:
+        try:
+            open_file.write("* " + h2.a['title'] + "\n")
+            #print("*" , h2.a['title'] , "\n")
+            #lines.append("* " + h2.a['title'] + "\n")
+        except:
+            pass
+
+# Best practice:
+# with open('file_to_save.txt', 'w') as open_file:
+#     open_file.write('A string to write')
+#     
+# Alternative, but does not close itself:
+# open_file = open('file_to_save.txt', 'w')
+# open_file.write('A string to write')
+# open_file.close()
+

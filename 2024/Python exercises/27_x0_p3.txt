@@ -1,0 +1,39 @@
+def new_xo():
+    game = [[0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]]
+    return game
+
+def printBoard(game):
+    print(game[0])
+    print(game[1])
+    print(game[2])
+
+if __name__ == "__main__":
+    game = new_xo()
+    while True:
+        printBoard(game)
+        #P1
+        while True:
+            move = input("P1, Where do you wish to place your piece?\n Enter as row,col: ")
+            move = move.split(",")
+            if (game[int(move[0])-1][int(move[1])-1] == 0):
+                game[int(move[0])-1][int(move[1])-1] = "X"
+                break
+            else:
+                print("There is already a piece there. Please try again")
+        
+        move = ""
+        printBoard(game)
+        
+        
+        #P2
+        while True:
+            move = input("P2, Where do you wish to place your piece?\n Enter as row,col: ")
+            move = move.split(",")
+            if (game[int(move[0])-1][int(move[1])-1] == 0):
+                game[int(move[0])-1][int(move[1])-1] = "O"
+                break
+            else:
+                print("There is already a piece there. Please try again")
+

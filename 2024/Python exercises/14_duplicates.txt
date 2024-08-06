@@ -1,0 +1,19 @@
+#Using Loops
+def duplicates(aList):
+    new = []
+    for x in aList:
+        if x not in new:
+            new.append(x)
+    
+    new.sort() #changes original list
+    return new
+
+#Using sets
+def duplicateSet(aList):
+    new = list(set(aList))
+    new.sort()
+    return new
+
+a = [2,1,1,3,6,7,7,100]  
+print (duplicates(a))
+print(duplicateSet(a))

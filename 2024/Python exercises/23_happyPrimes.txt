@@ -1,0 +1,12 @@
+with open('primes.txt' , 'r') as open_file:
+    all_primes = open_file.read()
+    
+all_primes = all_primes.split("\n")
+
+with open('happy.txt', 'r') as open_file:
+    all_happy = open_file.read()
+    
+all_happy = all_happy.split("\n")
+
+common = set(all_primes).intersection(set(all_happy))
+print(sorted(common, key=int))

@@ -1,0 +1,9 @@
+def hundred():
+    age = int(input("How old are you? "))
+    year = int(input("What year is it currently? "))
+    times = int(input("How many times do you want to print? "))
+    hundred = (100 - age) + year
+    for i in range(0, times):
+        print("You will be 100 years old in", str(hundred))
+    
+hundred()

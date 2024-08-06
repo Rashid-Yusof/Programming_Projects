@@ -1,0 +1,31 @@
+import random
+
+def cnb():
+    num = ""
+    for i in range(4):
+        num += str(random.randint(0,9))
+    tries = 0
+    while True:
+        tries += 1
+        guess = str(input("Guess the 4 digit number: "))
+        if guess == num:
+            print("You win!")
+            print(tries , "tries!")
+            break
+        else:
+            cows = 0
+            bulls = 0
+            for i in range(4):
+                if guess[i] == num[i]:
+                    cows += 1
+                else:
+                    bulls += 1
+            print("%d cow(s), %d bull(s)" % (cows, bulls))
+
+#Runs the file without creating variables etc when you import it.
+#I think they mean in comparison to just writing cnb() on it's own.
+#Only matters if this is an imported file? idk lmao
+            
+if __name__ == "__main__":
+    cnb()
+            

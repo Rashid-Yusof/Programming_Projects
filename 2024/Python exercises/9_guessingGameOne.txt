@@ -1,0 +1,20 @@
+import random
+
+def guessNum():
+    num = random.randint(1,9)
+    exit = ""
+    tries = 0
+    while (exit != 'exit'):
+        tries += 1
+        ans = int(input("Guess the number... OR ELSE: "))
+        if ans == num:
+            print("ZAMNNNNN")
+            break
+        elif ans > num:
+            print("TOO HIGH NERD")
+        else:
+            print("TOO LOW SLUT")
+        exit = input("Enter anything to play again. Enter 'exit' to give up like a slut").lower()
+    print("Only %d tries!" % (tries))
+        
+guessNum()

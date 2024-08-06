@@ -1,0 +1,13 @@
+import random
+
+def biggest(a,b,c):
+    print(a,b,c)
+    largest = a
+    if b > a:
+        largest = b
+    if (c > a) and (c > b):
+        largest = c
+    return largest
+    
+if __name__ == "__main__":
+    print(biggest(random.randint(1,9),random.randint(1,9),random.randint(1,9)))

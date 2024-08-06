@@ -1,0 +1,50 @@
+import random
+
+"""
+def find_elem(numList, num):
+    if num in numList:
+        return True
+    else:
+        return False
+"""
+
+def binary_search(numList, num):
+    length = len(numList)
+    new = numList
+    
+    print("Length: " , length)
+    print("NewList: ", new)
+    print("Num: " , num)
+    print("====START====")
+    
+    while len(new) > 1:
+        print("NewLen: ", len(new))
+        half = int(len(new) / 2)
+        print("HalfLen: ", half)
+        print("New half value: " ,new[half])
+        if num >= new[half]:
+            print("Is %d > %d? " % (num, new[half]))
+            print(num > new[half])
+            new = new[half::]
+        else:
+            new = new[0:half:]
+        print("NewList: " , new)
+        print("========")
+    if new[0] == num:
+        return True
+    else:
+        return False
+
+def random_list(length):
+    arr = []
+    for i in range(length):
+        arr.append(random.randint(0,10))
+    return arr
+
+if __name__ == "__main__":
+    numList = random_list(5)
+    numList.sort()
+    #print(int(len(numList) / 2))
+    #print(find_elem(numList, 2))
+    print(binary_search(numList, random.randint(0,10)))
+    

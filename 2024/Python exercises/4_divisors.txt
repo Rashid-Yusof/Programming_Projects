@@ -1,0 +1,25 @@
+def divisor():
+    num = int(input("Give a number to list its divisors: "))
+    div = []
+    count = num
+    while count != 0:
+        if num % count == 0:
+            div.append(count)
+        count -= 1
+    print(div)
+    
+"""Alternate solution
+def divisor():
+    num = int(input("Please choose a number to divide: "))
+
+    listRange = list(range(1,num+1))
+
+    divisorList = []
+
+    for number in listRange:
+        if num % number == 0:
+            divisorList.append(number)
+
+"""
+    
+divisor()

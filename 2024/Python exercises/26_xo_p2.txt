@@ -1,0 +1,85 @@
+import random
+
+def win(game):
+    #win if full row, col or diag
+    
+    #Row win
+    for row in game:
+        total = sum(row)
+        #print("row" , total)
+        if (0 not in row) and total == 3:
+            print("Player 1 wins! r")
+            return 0
+        elif total == 6:
+            print("Player 2 wins! r")
+            return 0
+    total = 0
+            
+    #column win
+    for i in range(3):
+        for j in range(3):
+            if game[j][i] != 0:
+                total += game[j][i]
+            else:
+                total = 7
+        #print("col" , total)
+        if total == 3:
+            print("Player 1 wins! c")
+            return 0
+        elif total == 6:
+            print("Player 2 wins! c")
+            return 0
+        total = 0
+            
+    #diag win\
+    diag1 = 0
+    diag2 = 0
+    j = 2
+        
+    for i in range(3):
+        #diag1
+        if game[i][i] != 0:
+            diag1 += game[i][i]
+        else:
+            diag1 = 7
+        
+        #diag2
+        if game[i][j] != 0:
+            diag2 += game[i][j]
+        else:
+            diag2 = 7
+        j -= 1
+    
+#     print("diag1" , diag1)
+#     print("diag2" , diag2)
+    
+    if diag1 == 3 or diag2 == 3:
+        print("Player 1 wins! d")
+        return 0
+    elif diag1 == 6 or diag2 == 6:
+        print("Player 2 wins! d")
+        return 0
+    
+    #No one wins
+    print("Tie!")
+    
+def xoGen():
+    game = []
+    row = []
+    for i in range(3):
+        for j in range(3):
+            row.append(random.randint(0,2))
+        game.append(row)
+        row = []
+    return game
+
+if __name__ == "__main__":
+    
+    #Generate random board
+    game = xoGen()
+    print(game[0])
+    print(game[1])
+    print(game[2])
+    
+    win(game)
+    

@@ -1,0 +1,17 @@
+def fibonacci():
+    fibo = [1,1]
+    num = int(input("How many fibonacci numbers do you wish to generate? "))
+    if num == 0:
+        return []
+    elif num == 1:
+        return [1]
+    elif num == 2:
+        return fibo
+    else:
+        count = 2
+        while count != num:
+            fibo.append(fibo[count-1] + fibo[count-2])
+            count += 1
+        return fibo
+
+print(fibonacci())

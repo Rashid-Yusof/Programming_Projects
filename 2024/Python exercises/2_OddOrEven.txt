@@ -1,0 +1,19 @@
+def oddeven():
+    number = int(input("Enter a number to check if it's even or odd: "))
+    if number % 4 == 0:
+        print("This is a multiple of 4.")
+    elif number % 2 == 0:
+        print("Your number is even.")
+    else:
+        print("Your number is odd.")
+        
+def divisible():
+    num = int(input("Enter a number: "))
+    check = int(input("Divide by: "))
+    if num % check == 0:
+        print("%d divides evenly into %d." % (check, num))
+    else:
+        print("It doesn't divide evenly.")
+        
+#oddeven()
+divisible()

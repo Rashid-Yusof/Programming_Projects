@@ -1,0 +1,44 @@
+import random
+#Current problem: Program tends to guess only in the middle to upper range.
+
+def guessNum():
+    print("Enter your number: ")
+    yourNum = random.randint(0,100)
+    print(yourNum)
+    maximum = 100
+    tries = 0
+    minimum = 0
+    guesses = []
+    while True:
+        tries += 1
+        while True:
+            middle = minimum + ((maximum-minimum)//2)
+            guess = random.randint(middle, maximum)
+            if guess not in guesses:
+                guesses.append(guess)
+                break
+        print("My guess is...%d" % guess)
+        if guess == yourNum:
+            print("I got it right! It took me %d guesses!" % tries)
+            return(tries)
+            #break
+        elif guess > yourNum:
+            print("Too high!")
+            maximum = guess
+        else:
+            print("Too low!")
+            if guess > minimum:
+                minimum = guess
+        print("Current max: %d" % maximum)
+        print("Current min: %d" % minimum)
+        print("==========================")
+            
+
+if __name__ == "__main__":
+    tries = []
+    sample = 500
+    for i in range(sample):
+       tries.append(guessNum())
+    print("tries: " , tries)
+    average = sum(tries) / sample
+    print("average: " , average)

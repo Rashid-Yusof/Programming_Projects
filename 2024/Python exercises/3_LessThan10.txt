@@ -1,0 +1,25 @@
+
+""" Original solution
+def lessTen(list_nums):
+    biggest = int(input("Choose the largest integer: "))
+    new_list = []
+    for num in list_nums:
+        if num < biggest:
+            new_list.append(num)
+    print(new_list)
+"""
+
+"""Solution 1
+def lessTen(list_nums):
+    for x in a:
+        if x< 5: print(x)
+"""
+
+"""Single line Solution
+def lessTen(list_nums):
+    print( [ x for x in a if x<5 ] )
+"""
+
+            
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+lessTen(a)

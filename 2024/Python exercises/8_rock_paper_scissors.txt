@@ -1,0 +1,87 @@
+def rps():
+    
+    i = "y"
+    while i != "n":
+        while True:
+            p1 = input("Player 1; Type R for rock, S for Scissors and P for Paper! ").lower()
+            if (p1 == "r" or p1 == "p" or p1 == "s"):
+                break
+        while True:
+            p2 = input("Player 2; Type R for rock, S for Scissors and P for Paper! ").lower()
+            if (p2 == "r" or p2 == "p" or p2 == "s"):
+                break
+                    
+        if p1 == p2:
+            print("Draw!")
+        elif ( (p1 == "r" and p2=="s") or (p1 == "s" and p2 == "p") or (p1 == "p" and p2 == "r") ):
+            print("Player 1 wins!")
+        else:
+            print("Player 2 wins!")
+            
+        while True:
+            i = input("Play again? y for yes, n for no: ").lower()
+            if (i == "y" or i == "n"):
+                break
+            else:
+                print("Please type y or n")
+                
+""" Solution
+import sys
+
+user1 = input("What's your name?")
+user2 = input("And your name?")
+user1_answer = input("%s, do yo want to choose rock, paper or scissors?" % user1)
+user2_answer = input("%s, do you want to choose rock, paper or scissors?" % user2)
+
+def compare(u1, u2):
+    if u1 == u2:
+        return("It's a tie!")
+    elif u1 == 'rock':
+        if u2 == 'scissors':
+            return("Rock wins!")
+        else:
+            return("Paper wins!")
+    elif u1 == 'scissors':
+        if u2 == 'paper':
+            return("Scissors win!")
+        else:
+            return("Rock wins!")
+    elif u1 == 'paper':
+        if u2 == 'rock':
+            return("Paper wins!")
+        else:
+            return("Scissors win!")
+    else:
+        return("Invalid input! You have not entered rock, paper or scissors, try again.")
+        sys.exit()
+
+print(compare(user1_answer, user2_answer))
+"""
+
+""" DICTIONARY METHOD
+
+again = "y"
+
+outcomes = {
+"Rock": {"Rock": "draw", "Paper": "loss", "Scissors": "win"},
+"Paper":{"Rock": "win", "Paper": "draw", "Scissors": "loss"},
+"Scissors": {"Rock": "loss", "Paper": "win", "Scissors": "draw"}
+
+}
+while again == 'y':
+
+    p1 = input("Player 1 --> Rock, Paper, or Scissors? ")
+    print()
+    
+    p2 = input("Player 2 --> Rock, Paper, or Scissors? ")
+    print()
+    
+    result = outcomes.get(p1, {}).get(p2, {})
+    print(result)
+    
+    again = input("Type y to play again, anything else to stop: ")
+    print()
+"""
+                
+
+rps()

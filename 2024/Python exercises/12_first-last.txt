@@ -1,0 +1,6 @@
+#Returns the first and last element of a list
+def beginEndList(aList):
+    newList = [aList[0], aList[len(aList)-1]]
+    return newList
+
+print (beginEndList([5, 10, 15, 20, 25]))

@@ -1,0 +1,19 @@
+def divisor(num):
+    div = []
+    count = num
+    while count != 0:
+        if num % count == 0:
+            div.append(count)
+        count -= 1
+    return div
+    
+def prime():
+    num = int(input("Give a number to find out if it's prime: "))
+    res = divisor(num)
+    print("Divisors:" , res)
+    if len(res) == 2:
+        print("It's a prime!")
+    else:
+        print("It's not a prime...")
+    
+prime()

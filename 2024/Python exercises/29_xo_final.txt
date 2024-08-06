@@ -1,0 +1,115 @@
+import random
+
+#part1
+#Draw board
+def board():
+    width = int(input("Select the width: "))
+    height = int(input("Select the height: "))
+    
+    for i in range(height):
+        print(" ---" * width )
+        print("|   " * (width+1))
+    print(" ---" * width)
+    
+#part2
+#Win Function
+def win(game):
+    
+    #Row Win
+    for i in range(3):
+        if game[i][0] == game[i][1] == game[i][2] == "X":
+            print("Player 1 wins! r")
+            return 0
+        elif game[i][0] == game[i][1] == game[i][2] == "O":
+            print("Player 2 wins! r")
+            return 0
+        
+    #Column Win
+        elif game[0][i] == game[1][i] == game[2][i] == "X":
+            print("Player 1 wins! c")
+            return 0
+        elif game[0][i] == game[1][i] == game[2][i] == "O":
+            print("Player 2 wins! c")
+            return 0
+        
+    if game[0][0] == game[1][1] == game[2][2] == "X":
+        print("Player 1 wins! d")
+        return 0
+    elif game[0][0] == game[1][1] == game[2][2] == "O":
+        print("Player 2 wins! d")
+        return 0
+    
+    #No one wins
+    count = 0
+    for row in game:
+        if 0 not in row:
+            count += 1
+    if count == 3:
+        print("Tie!")
+        return 0
+    return 1
+ 
+#Random game generator 
+def xoGen():
+    game = []
+    row = []
+    for i in range(3):
+        for j in range(3):
+            row.append(random.randint(0,2))
+        game.append(row)
+        row = []
+    return game
+
+#Part3
+
+#New board Array
+def new_xo():
+    game = [[0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]]
+    return game
+
+#Print Board Array
+def printBoard(game):
+    print(game[0])
+    print(game[1])
+    print(game[2])
+
+#Main Game
+def xoGame():
+    game = new_xo()
+    run = 1
+    while True:
+        printBoard(game)
+        #P1
+        while True:
+            move = input("P1, Where do you wish to place your piece?\n Enter as row,col: ")
+            move = move.split(",")
+            if (game[int(move[0])-1][int(move[1])-1] == 0):
+                game[int(move[0])-1][int(move[1])-1] = "X"
+                break
+            else:
+                print("There is already a piece there. Please try again")
+        
+        move = ""
+        printBoard(game)
+        
+        run = win(game)
+        if not run:
+            return
+        
+        #P2
+        while True:
+            move = input("P2, Where do you wish to place your piece?\n Enter as row,col: ")
+            move = move.split(",")
+            if (game[int(move[0])-1][int(move[1])-1] == 0):
+                game[int(move[0])-1][int(move[1])-1] = "O"
+                break
+            else:
+                print("There is already a piece there. Please try again")
+        run = win(game)
+        if not run:
+            return
+                
+if __name__ == "__main__":
+    xoGame()

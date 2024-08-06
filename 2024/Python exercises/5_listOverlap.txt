@@ -1,0 +1,30 @@
+import random
+
+#FUNCTIONS========
+def randomList():
+    new = []
+    len = random.randint(0,12)
+    for x in range(len):
+        new.append(random.randint(0,25))
+    new.sort()
+    return new
+
+def common(a,b):
+    new_list = []
+    for num in a:
+        if (num in b) and (num not in new_list):
+            new_list.append(num)
+    print(new_list)
+#=================
+
+a = randomList()
+b = randomList()
+print("First list: " , a)
+print("Second List: ", b)
+print("Common List: ")
+common(a,b)
+
+#One line solution
+#print("Common List: ", set(a+b))
+#because sets cannot have duplicates, this immediately generates only unique common between both lists.
+        
